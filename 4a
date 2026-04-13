@@ -1,0 +1,48 @@
+#include<iostream>
+using namespace std;
+class resistance
+{
+    float cur;
+
+public:
+    resistance()
+    {
+        cur=0;
+    }
+    resistance(int r1)
+    {
+       int v=100;
+        cur=v/r1;
+        cout<<"Current: "<<cur<<endl;
+    }
+    resistance(int r1, int r2)
+    {
+        int v=100;
+        int i1 = v / r1;
+        int i2 = v / r2;
+        cur= i1+i2;
+        cout<<"Total current: "<<cur<<endl;
+        cout<<"I1= "<<i1<<endl;
+        cout<<"I2= "<<i2<<endl;
+    }
+    resistance(int r1, int r2, int r3)
+    {
+        int v=100;
+        int i1 = v / r1;
+        int i2 = v / r2;
+        int i3 = v / r3;
+        cur=i1+i2+i3;
+        cout<<"Total current: "<<cur<<endl;
+        cout<<"I1= "<<i1<<endl;
+        cout<<"I2= "<<i2<<endl;
+        cout<<"I3= "<<i3<<endl;
+    }
+};
+int main()
+{
+    resistance c;
+    resistance c1(100);
+    resistance c2(50, 200);
+    resistance c3(10, 20, 30);
+    return 0;
+}
