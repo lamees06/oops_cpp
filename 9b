@@ -1,0 +1,70 @@
+#include <iostream>
+using namespace std;
+template <class T>
+class Stack
+{
+   private:
+      T arr[20];
+      int top;
+   public:
+      Stack()
+      {
+         top = -1;
+      }
+      void push(T val)
+      {
+         if (top == 20-1)
+         {
+            cout << "Stack overload! cannot push " << val << endl;
+         }
+         else
+         {
+            arr[++top] = val;
+            cout << "Pushed: " << val << endl;
+         }
+      }
+      T pop()
+      {
+         if (top == -1)
+         {
+            cout << "Stack underflow! no element to pop" << endl;
+            return T();
+         }
+         else
+         {
+            cout << "Popped: " << arr[top] << endl;
+            return arr[top--];
+         }
+      }
+      T peek()
+      {
+         if (top == -1)
+         {
+            cout << "Stack is empty!" << endl;
+            return T();
+         }
+         else
+         {
+            return arr[top];
+         }
+      }
+};
+int main()
+{
+    Stack<int> s1;
+    s1.push(6);
+    s1.push(11);
+    cout << "Top element in INT stack(bottom to top): " << s1.peek() << endl;
+    s1.pop();
+    s1.pop();
+    s1.pop();
+    cout << endl;
+    Stack<float> s2;
+    s2.push(3.14);
+    s2.push(1.618);
+    cout << "Top element in the FLOAT Stack(bottom to top): "<< s2.peek() << endl;
+    s2.pop();
+    s2.pop();
+    s2.pop();
+    return 0;
+}
