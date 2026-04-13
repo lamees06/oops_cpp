@@ -1,0 +1,79 @@
+#include <iostream>
+using namespace std;
+class digitcounter
+{
+   int* dig;
+   int num, size, temp;
+   public:
+   digitcounter()
+   {
+      dig = '\0';
+      num = 0;
+      size = 0;
+      temp = 0;
+   }
+   void getdata()
+   {
+      cout << "Enter the number: ";
+      cin >> num;
+   }
+   void numsize()
+   {
+      temp = num;
+      size = 0;
+      if (temp == 0)
+      {
+         size = 1;
+      }
+      else
+      {
+         while (temp > 0)
+         {
+            temp /= 10;
+            size++;
+                                         }
+      }
+   }
+   void store()
+   {
+      delete[] dig;
+      dig = new int[size];
+      int tempNum = num;
+      int i = size - 1;
+      if (tempNum == 0)
+      {
+         dig[0] = 0;
+      }
+      else
+      {
+         while (tempNum > 0)
+         {
+            dig[i--] = tempNum % 10;
+            tempNum /= 10;
+         }
+      }
+   }
+   void display()
+   {
+      cout << "Number of digits: " << size << endl;
+      cout << "Digits: ";
+      for (int i = 0; i < size; i++)
+      {
+         cout << dig[i] << " ";
+      }
+      cout << endl;
+   }
+   ~digitcounter()
+   {
+      delete[] dig;
+   }
+};
+int main()
+{
+   digitcounter d1;
+   d1.getdata();
+   d1.numsize();
+   d1.store();
+   d1.display();
+   return 0;
+}
