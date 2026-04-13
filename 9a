@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std;
+template<class T>
+void large(T a,T b)
+{
+   if(a>b)
+      cout<<"Largest value: "<<a<<endl;
+   else
+      cout<<"Largest value: "<<b<<endl;
+}
+int main()
+{
+   large(5,11);
+   large(18.5,11.6);
+   large('A','L');
+   return 0;
+}
