@@ -1,0 +1,56 @@
+#include<iostream>
+using namespace std;
+
+class emf
+{
+   int v;
+   float Eb;
+public:
+    emf()
+    {
+        Eb=0;
+    }
+    float motor()
+    {
+        int v=220;
+        float Ra=1.2, Rsh=75, Rs=6;
+        float Ia = v / Rs;
+        float Eb = v - (Ia * Ra);
+        return Eb;
+    }
+    float motor(float Rsh)
+    {
+       int v=220;
+       float Ra = 1.2;
+        float Ia = v / Rsh;
+        float Eb = v - (Ia * Ra);
+        return Eb;
+    }
+    float motor(float Ra, int Rs)
+    {
+       int v=220;
+        float r = Ra + Rs;
+        float Ia = v / r;
+        float Eb = v - (Ia * Ra);
+        return Eb;
+    }
+    float motor(int Rs, int Rsh, float Ra)
+    {
+       int v=220;
+        float total_res = Ra + Rsh + Rs;
+        float Ia = v / total_res;
+        float Eb = v - (Ia * Ra);
+        return Eb;
+    }
+};
+int main()
+{
+    emf e1;
+    float Ebshunt = e1.motor(75);
+    cout << "Back emf of shunt motor: " << Ebshunt << " V" << endl;
+    float Ebseries = e1.motor(1.2,6);
+    cout << "Back emf of series motor: " << Ebseries << " V" << endl;
+    float Ebcompound = e1.motor(6, 75, 1.2);
+    cout << "Back emf of compound motor: " << Ebcompound << " V" << endl;
+    return 0;
+}
