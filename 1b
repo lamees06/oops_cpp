@@ -1,0 +1,58 @@
+#include<iostream>
+using namespace std;
+class book
+{
+   string title;
+   int access_no;
+   int price;
+   int copies;
+   public:
+   book()
+   {
+      title= " ";
+      access_no= 0;
+      price=0;
+      copies=0;
+   }
+   ~book()
+   {
+      cout<<"\nDestructor executed";
+   }
+   void getdata()
+   {
+      cout<<"Enter Book Title: ";
+      cin>>title;
+      cout<<"Enter access no.: ";
+      cin>>access_no;
+      cout<<"Enter price: ";
+      cin>>price;
+      cout<<"Enter no. of copies: ";
+      cin>>copies;
+   }
+   void printdata()
+   {
+      cout<<"The title of the book is "<<title<<endl;
+      cout<<"The access number of the book is "<<access_no<<endl;
+      cout<<"The price of the book is "<<price<<endl;
+      cout<<"The copies of the book is "<<copies<<endl;
+   }
+   int getprice()
+   {
+      return price;
+   }
+   int getcopies()
+   {
+      return copies;
+   }
+};
+int main()
+{
+   int p,q;
+   book b1;
+   b1.getdata();
+   b1.printdata();
+   p=b1.getprice();
+   q=b1.getcopies();
+   cout<<"Total worth of the books: "<<p*q;
+   return 0;
+}
