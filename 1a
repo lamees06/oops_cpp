@@ -1,0 +1,47 @@
+#include<iostream>
+using namespace std;
+class car
+{
+   private:
+      string brand;
+      int modal;
+      int year;
+      float price;
+   public:
+   car()
+   {
+      brand =" ";
+      modal = 0;
+      year = 0;
+      price = 0;
+   }
+   ~car()
+   {
+   cout<<"destructor executed";
+   }
+   void getdata()
+   {
+      cout<<"Enter Brand name: ";
+      cin>>brand;
+      cout<<"Enter Modal no: ";
+      cin>>modal;
+      cout<<"Enter year: ";
+      cin>>year;
+      cout<<"Enter price: ";
+      cin>>price;
+   }
+   void printdata()
+   {
+      cout<<"The Brand name is "<<brand<<endl;
+      cout<<"The modal no. of the car is "<<modal<<endl;;
+      cout<<"The manufacturing year is "<<year<<endl;;
+      cout<<"The price of the car is "<<price<<endl;;
+   }
+};
+int main()
+{
+   car c1;
+   c1.getdata();
+   c1.printdata();
+   return 0;
+}
