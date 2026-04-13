@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+class student
+{
+    int regno, code;
+public:
+    student(int reg, int col)
+    {
+        regno = reg;
+        code = col;
+    }
+    student(const student& ss1)
+    {
+        regno = 0;
+        code = ss1.code;
+    }
+    void display()
+    {
+        cout << "Register number: " << regno << endl;
+        cout << "college code: " << code << endl;
+    }
+    void get()
+    {
+        cout << "Enter the reg no: ";
+        cin >> regno;
+    }
+};
+int main()
+{
+    cout << "The student details:" << endl;
+    student s1(11, 9517);
+    s1.display();
+    student s2(s1);
+    s2.get();
+    s2.display();
+    student s3 = s1;
+    s3.get();
+    s3.display();
+    return 0;
+}
